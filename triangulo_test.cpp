@@ -5,6 +5,16 @@
 
 TEST_CASE("Testando a primeira função, getPerimeter: "){
 
+    /*Neste caso, a função getPerimeter() possui um bug na adição dos lados do triângulo, isso porque soma
+    lado 1 + lado 2 + lado 2. Isso implica um erro no tamanho do perímetro. Temos definido assim, dois casos,
+    (1) positivo, em que, apesar do erro, o código ainda funciona conforme esperado, e (2) negativo, em que o
+    código apresenta mal funcionamento devido ao erro.
+    (1) Ocorrerá quando calcularmos o perímetro de um triângulo equilátero, no qual lado 1 = lado 2 = lado 3, 
+    não fazendo diferença no somatório final, ou quando calcularmos o perímetro de um triângulo isósceles em 
+    que lado 2 = lado 3
+    (2) Ocorrerá quando calcularmos o perímetro de um triângulo isósceles, no qual os lados iguais são 1 e 2
+    ou quando calcularmos o perímetro de um triângulo escaleno, em que os três lados possuem medidas diferentes*/
+
     SUB_CASE("Caso positivo: "){
 
 
@@ -18,6 +28,14 @@ TEST_CASE("Testando a primeira função, getPerimeter: "){
 }
 
 TEST_CASE("Testando a segunda função, getArea: "){
+
+    /*Neste caso, a função getArea() possui um bug que é diretamente ligado à função getPerimeter(), isso porque
+    para o cálculo do semiperímetro, utilizado na fórmula de Heron, é utilizada a função getPerimeter(), que possui
+    o erro descrito no test_case acima. Assim, esse erro será "carregado para a função getArea, o que determina que
+    os casos positivos e negativos são os mesmos citados acima.
+    Poderiamos falar também da possibilidade de tratar casos relativos à valores de lados negativos, que determinariam
+    o cálculo de uma raíz negativa, que não está definida, contudo os asserts realizados no arquivo triângulo.cpp não
+    permitem que um triângulo com um, dois ou três lados negativos seja criado."*/
 
     SUB_CASE("Caso positivo: "){
 
@@ -33,6 +51,15 @@ TEST_CASE("Testando a segunda função, getArea: "){
 
 TEST_CASE("Testando a terceira função, getKind: "){
 
+    /*Neste caso, a função getKind() possui um bug relacionado á ordem de execução das checagens do tipo de triângulo,
+    isso se dá, pois o primeiro caso a ser testado é o de triãngulos isósceles, contudo há uma chance de o triângulo ser
+    confirmado como isósceles sendo, na verdade, um triângulo equilátero, isto porque, como triângulos isósceles tem dois
+    lados iguais e equiláteros tem três lados iguais, todo equilátero é um isósceles. Assim, os triângulos equiláteros são
+    como uma especialização dos triãngulos isósceles, devendo ser testados antes. Ou seja, temos caso positivo quando o 
+    triângulo a ser testado é equilátero, e temos caso negatuvo quando o triângulo testado é isósceles
+    Poderiamos falar também de uma exceção para triãngulos escalenos, quando estes possume lados na proporção X, 2X e 3X, 
+    mas este caso já é tratado pelas asserts do arquivo triângulo.cpp*/
+
     SUB_CASE("Caso positivo: "){
 
 
@@ -40,7 +67,7 @@ TEST_CASE("Testando a terceira função, getKind: "){
 
     SUB_CASE("Caso negativo: "){
 
-        
+
     }
 
 }
