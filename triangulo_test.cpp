@@ -22,6 +22,11 @@ TEST_CASE("Testando a primeira função, getPerimeter: "){
         shapes::Triangle equilateral1(4, 4, 4);
         shapes::Triangle equilateral2(8, 8, 8);
 
+        CHECK_EQ(17, isosceles1.getPerimeter());
+        CHECK_EQ(29, isosceles2.getPerimeter());
+        CHECK_EQ(12, equilateral1.getPerimeter());
+        CHECK_EQ(24, equilateral2.getPerimeter());
+
     }
 
     SUB_CASE("Caso negativo: "){
@@ -30,6 +35,11 @@ TEST_CASE("Testando a primeira função, getPerimeter: "){
         shapes::Triangle isosceles4(9, 9, 6);
         shapes::Triangle scalene1(7, 4, 5);
         shapes::Triangle scalene2(10, 8, 5);
+
+        CHECK_EQ(19, isosceles3.getPerimeter());
+        CHECK_EQ(24, isosceles4.getPerimeter());
+        CHECK_EQ(16, scalene1.getPerimeter());
+        CHECK_EQ(23, scalene2.getPerimeter());
 
     }
 
@@ -52,6 +62,11 @@ TEST_CASE("Testando a segunda função, getArea: "){
         shapes::Triangle equilateral1(4, 4, 4);
         shapes::Triangle equilateral2(8, 8, 8);
 
+        CHECK_EQ(12.497, isosceles1.getArea());
+        CHECK_EQ(39.181, isosceles2.getArea());
+        CHECK_EQ(6.928, equilateral1.getArea());
+        CHECK_EQ(27.712, equilateral2.getArea());
+
     }
 
     SUB_CASE("Caso negativo: "){
@@ -60,6 +75,11 @@ TEST_CASE("Testando a segunda função, getArea: "){
         shapes::Triangle isosceles4(9, 9, 6);
         shapes::Triangle scalene1(7, 4, 5);
         shapes::Triangle scalene2(10, 8, 5);
+
+        CHECK_EQ(16.345, isosceles3.getArea());
+        CHECK_EQ(25.455, isosceles4.getArea());
+        CHECK_EQ(9.797, scalene1.getArea());
+        CHECK_EQ(19.81, scalene2.getArea());
 
     }
 
@@ -83,12 +103,20 @@ TEST_CASE("Testando a terceira função, getKind: "){
         shapes::Triangle scalene3(9, 14, 11);
         shapes::Triangle scalene4(10, 17, 15);
 
+        CHECK_EQ(Kind::ISOSCELES, isosceles5.getKind());
+        CHECK_EQ(Kind::ISOSCELES, isosceles6.getKind());
+        CHECK_EQ(Kind::SCALENE, scalene3.getKind());
+        CHECK_EQ(Kind::SCALENE, scalene4.getKind());
+
     }
 
     SUB_CASE("Caso negativo: "){
 
         shapes::Triangle equilateral3(7, 7, 7);
         shapes::Triangle equilateral4(9, 9, 9);
+
+        CHECK_EQ(Kind::EQUILATERAL, equilateral3.getKind());
+        CHECK_EQ(Kind::EQUILATERAL, equilateral4.getKind());
 
     }
 
