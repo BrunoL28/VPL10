@@ -15,7 +15,7 @@ TEST_CASE("Testando a primeira função, getPerimeter: "){
     (2) Ocorrerá quando calcularmos o perímetro de um triângulo isósceles, no qual os lados iguais são 1 e 2
     ou quando calcularmos o perímetro de um triângulo escaleno, em que os três lados possuem medidas diferentes*/
 
-    SUB_CASE("Caso positivo: "){
+    SUBCASE("Caso positivo: "){
 
         shapes::Triangle isosceles1(7, 5, 5);
         shapes::Triangle isosceles2(11, 9, 9);
@@ -29,7 +29,7 @@ TEST_CASE("Testando a primeira função, getPerimeter: "){
 
     }
 
-    SUB_CASE("Caso negativo: "){
+    SUBCASE("Caso negativo: "){
 
         shapes::Triangle isosceles3(7, 7, 5);
         shapes::Triangle isosceles4(9, 9, 6);
@@ -55,7 +55,7 @@ TEST_CASE("Testando a segunda função, getArea: "){
     o cálculo de uma raíz negativa, que não está definida, contudo os asserts realizados no arquivo triângulo.cpp não
     permitem que um triângulo com um, dois ou três lados negativos seja criado."*/
 
-    SUB_CASE("Caso positivo: "){
+    SUBCASE("Caso positivo: "){
 
         shapes::Triangle isosceles1(7, 5, 5);
         shapes::Triangle isosceles2(11, 9, 9);
@@ -69,7 +69,7 @@ TEST_CASE("Testando a segunda função, getArea: "){
 
     }
 
-    SUB_CASE("Caso negativo: "){
+    SUBCASE("Caso negativo: "){
 
         shapes::Triangle isosceles3(7, 7, 5);
         shapes::Triangle isosceles4(9, 9, 6);
@@ -96,27 +96,27 @@ TEST_CASE("Testando a terceira função, getKind: "){
     Poderiamos falar também de uma exceção para triãngulos escalenos, quando estes possume lados na proporção X, 2X e 3X, 
     mas este caso já é tratado pelas asserts do arquivo triângulo.cpp*/
 
-    SUB_CASE("Caso positivo: "){
+    SUBCASE("Caso positivo: "){
 
         shapes::Triangle isosceles5(8, 5, 5);
-        shapes::Trinagle isosceles6(9, 9, 6);
+        shapes::Triangle isosceles6(9, 9, 6);
         shapes::Triangle scalene3(9, 14, 11);
         shapes::Triangle scalene4(10, 17, 15);
 
-        CHECK_EQ(Kind::ISOSCELES, isosceles5.getKind());
-        CHECK_EQ(Kind::ISOSCELES, isosceles6.getKind());
-        CHECK_EQ(Kind::SCALENE, scalene3.getKind());
-        CHECK_EQ(Kind::SCALENE, scalene4.getKind());
+        CHECK_EQ(shapes::Triangle::Kind::ISOSCELES, isosceles5.getKind());
+        CHECK_EQ(shapes::Triangle::Kind::ISOSCELES, isosceles6.getKind());
+        CHECK_EQ(shapes::Triangle::Kind::SCALENE, scalene3.getKind());
+        CHECK_EQ(shapes::Triangle::Kind::SCALENE, scalene4.getKind());
 
     }
 
-    SUB_CASE("Caso negativo: "){
+    SUBCASE("Caso negativo: "){
 
         shapes::Triangle equilateral3(7, 7, 7);
         shapes::Triangle equilateral4(9, 9, 9);
 
-        CHECK_EQ(Kind::EQUILATERAL, equilateral3.getKind());
-        CHECK_EQ(Kind::EQUILATERAL, equilateral4.getKind());
+        CHECK_EQ(shapes::Triangle::Kind::EQUILATERAL, equilateral3.getKind());
+        CHECK_EQ(shapes::Triangle::Kind::EQUILATERAL, equilateral4.getKind());
 
     }
 
