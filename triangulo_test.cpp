@@ -17,11 +17,19 @@ TEST_CASE("Testando a primeira função, getPerimeter: "){
 
     SUB_CASE("Caso positivo: "){
 
+        shapes::Triangle isosceles1(7, 5, 5);
+        shapes::Triangle isosceles2(11, 9, 9);
+        shapes::Triangle equilateral1(4, 4, 4);
+        shapes::Triangle equilateral2(8, 8, 8);
 
     }
 
     SUB_CASE("Caso negativo: "){
 
+        shapes::Triangle isosceles3(7, 7, 5);
+        shapes::Triangle isosceles4(9, 9, 6);
+        shapes::Triangle scalene1(7, 4, 5);
+        shapes::Triangle scalene2(10, 8, 5);
 
     }
 
@@ -39,11 +47,19 @@ TEST_CASE("Testando a segunda função, getArea: "){
 
     SUB_CASE("Caso positivo: "){
 
+        shapes::Triangle isosceles1(7, 5, 5);
+        shapes::Triangle isosceles2(11, 9, 9);
+        shapes::Triangle equilateral1(4, 4, 4);
+        shapes::Triangle equilateral2(8, 8, 8);
 
     }
 
     SUB_CASE("Caso negativo: "){
 
+        shapes::Triangle isosceles3(7, 7, 5);
+        shapes::Triangle isosceles4(9, 9, 6);
+        shapes::Triangle scalene1(7, 4, 5);
+        shapes::Triangle scalene2(10, 8, 5);
 
     }
 
@@ -56,17 +72,23 @@ TEST_CASE("Testando a terceira função, getKind: "){
     confirmado como isósceles sendo, na verdade, um triângulo equilátero, isto porque, como triângulos isósceles tem dois
     lados iguais e equiláteros tem três lados iguais, todo equilátero é um isósceles. Assim, os triângulos equiláteros são
     como uma especialização dos triãngulos isósceles, devendo ser testados antes. Ou seja, temos caso positivo quando o 
-    triângulo a ser testado é equilátero, e temos caso negatuvo quando o triângulo testado é isósceles
+    triângulo a ser testado é realmente isósceles, e temos caso negatuvo quando o triângulo testado é equilátero.
     Poderiamos falar também de uma exceção para triãngulos escalenos, quando estes possume lados na proporção X, 2X e 3X, 
     mas este caso já é tratado pelas asserts do arquivo triângulo.cpp*/
 
     SUB_CASE("Caso positivo: "){
 
+        shapes::Triangle isosceles5(8, 5, 5);
+        shapes::Trinagle isosceles6(9, 9, 6);
+        shapes::Triangle scalene3(9, 14, 11);
+        shapes::Triangle scalene4(10, 17, 15);
 
     }
 
     SUB_CASE("Caso negativo: "){
 
+        shapes::Triangle equilateral3(7, 7, 7);
+        shapes::Triangle equilateral4(9, 9, 9);
 
     }
 
